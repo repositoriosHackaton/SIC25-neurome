@@ -1,21 +1,32 @@
-# NeuroMe - Detección de Gestos para Lengua de Señas Venezolana
+# Proyecto de Reconocimiento de Lengua de Señas con Redes Neuronales
 
-¡Hola! Somos NeuroMe, un equipo apasionado por la tecnología y la inclusión social. 
-Nos dedicamos al desarrollo de soluciones innovadoras que faciliten la comunicación y la accesibilidad para todos.
+![Python 3.11](https://img.shields.io/badge/Python-3.11-blue.svg)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.12-orange.svg)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.7-green.svg)
 
-## Finalidad del Proyecto
+Modelo de deep learning para reconocimiento de señas manuales en tiempo real. Incluye 25 clases de letras y señas especiales.
 
-Nuestro objetivo principal es crear una red neuronal capaz de detectar y traducir gestos de la Lengua de Señas Venezolana (LSV).
-Este proyecto busca facilitar la comunicación entre personas que utilizan LSV y aquellas que no la conocen, 
-así como sentar las bases para futuras investigaciones y recopilaciones de datos en este campo.
+## 📦 Requisitos Previos
+bash
+Python 3.11
+TensorFlow >= 2.12
+Keras >= 2.12
+scikit-learn >= 1.2
+pandas >= 2.0
+numpy >= 1.24  
+matplotlib >= 3.7
+opencv-python >= 4.7
+mediapipe >= 0.10
 
 
-## SCRIPTS
-  Captura_de_pantalla: Permite detectar gestos en pantalla. 
+# Instalación
+bash
+pip install tensorflow keras scikit-learn pandas numpy matplotlib opencv-python mediapipe
 
-
-## Contacto
-
-Para cualquier pregunta o sugerencia, no dude en contactárnos
-
-¡Juntos podemos construir un futuro más inclusivo!
+# Clases Soportadas
+bash
+CLASSES = [
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+    'K', 'L', 'M', 'N', 'O', 'Q', 'R', 'U', 'V', 'W',
+    'X', 'Y', 'Z', 'nothing', 'space'
+]
