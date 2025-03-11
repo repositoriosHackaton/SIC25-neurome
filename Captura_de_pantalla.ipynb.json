@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "kernelspec": {
+      "name": "python",
+      "display_name": "Python (Pyodide)",
+      "language": "python"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "python",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8"
+    }
+  },
+  "nbformat_minor": 5,
+  "nbformat": 4,
+  "cells": [
+    {
+      "id": "3ad1762a-00bd-4080-bda3-ef6d9adabbcc",
+      "cell_type": "code",
+      "source": "import cv2\nimport mediapipe as mp\nimport pyautogui\n\n# Inicializar MediaPipe Hands\nmp_hands = mp.solutions.hands\nhands = mp_hands.Hands(\n    static_image_mode=False,\n    max_num_hands=2,  # Máximo 2 manos detectadas\n    min_detection_confidence=0.5\n)\n\n# Capturar video de la cámara (opcional) o pantalla\ncap = cv2.VideoCapture(0)  # Usar 0 para cámara web\n\nwhile True:\n    # Opción 1: Capturar desde cámara\n    ret, frame = cap.read()\n    \n    # Opción 2: Capturar pantalla (ejemplo con PyAutoGUI)\n    # screenshot = pyautogui.screenshot()\n    # frame = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)\n    \n    # Procesar frame con MediaPipe\n    frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)\n    results = hands.process(frame_rgb)\n    \n    # Dibujar landmarks de las manos\n    if results.multi_hand_landmarks:\n        for hand_landmarks in results.multi_hand_landmarks:\n            mp.solutions.drawing_utils.draw_landmarks(\n                frame,\n                hand_landmarks,\n                mp_hands.HAND_CONNECTIONS\n            )\n    \n    # Mostrar ventana con el resultado\n    cv2.imshow(\"Detección de señas\", frame)\n    \n    # Salir con 'q'\n    if cv2.waitKey(1) & 0xFF == ord('q'):\n        break\n\ncap.release()",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [],
+      "execution_count": null
+    }
+  ]
+}
