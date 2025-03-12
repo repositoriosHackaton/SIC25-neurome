@@ -155,7 +155,6 @@ class SignLanguageApp:
         if self.is_processing and self.cap.isOpened():
             ret, frame = self.cap.read()
             if ret:
-                frame = cv2.flip(frame, 1)  # Espejo para vista natural
                 processed_frame = self.detect_hands(frame)
                 self.update_frame(self.camera_label, processed_frame)
             self.root.after(10, self.process_camera)
