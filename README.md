@@ -5,7 +5,9 @@
 ![OpenCV](https://img.shields.io/badge/OpenCV-4.7-green.svg)
 
 Modelo de deep learning para reconocimiento de señas manuales en tiempo real. Incluye 25 clases de letras y señas especiales.
-
+## Modelo (.Keras - Drive)
+bash 
+https://drive.google.com/file/d/1VAHIzgGGnQhwSKxYwQWXjbRxRPmsYACa/view?usp=sharing
 ## 📦 Requisitos Previos
 bash
 Python 3.11
